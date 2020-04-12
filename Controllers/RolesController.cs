@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ManagerAssistant.Controllers
 {
-
+    [Authorize(Roles = "admin, manager")]
     public class RolesController : Controller
     {
         RoleManager<IdentityRole> _roleManager;

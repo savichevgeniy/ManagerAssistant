@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ManagerAssistant;
 using ManagerAssistant.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ManagerAssistant.Controllers
 {
+    [Authorize(Roles = "admin, manager")]
     public class TableForEmployeesController : Controller
     {
         private readonly ApplicationDbContext _context;
