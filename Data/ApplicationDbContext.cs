@@ -12,5 +12,19 @@ namespace ManagerAssistant.Data
             : base(options)
         {
         }
+
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<Project> Project { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Client> Client { get; set; }
+        public DbSet<TableForEmployee> TableForEmployee { get; set; }
+        public DbSet<TableForDesigners> TableForDesigners { get; set; }
+        public DbSet<TableForDeveloper> TableForDevelopers { get; set; }
+        public DbSet<TableForTester> TableForTesters { get; set; }
+        public DbSet<Designer> Designers { get; set; }
+        public DbSet<Tester> Testers { get; set; }
+        public DbSet<Developer> Developers { get; set; }
+        public DbSet<OtherEmloyee> OtherEmloyees { get; set; }
+        public DbSet<AllProject> AllProjects { get; set; }
     }
 }
