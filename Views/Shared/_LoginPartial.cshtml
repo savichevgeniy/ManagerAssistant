@@ -2,25 +2,73 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Log out</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Log in</a>
-    </li>
-}
-</ul>
+    <ul class="navbar-nav nav nav-tabs">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-globe"></i> Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-address-book"></i> Contacts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-info-circle"></i> Manual</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-portrait"></i> Tables<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="index"><i class="fas fa-project-diagram"></i> Project</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="AllProjects" asp-action="index"><i class="fas fa-border-all"></i> All projects</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="index"><i class="fas fa-sort"></i> Order</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Clients" asp-action="index"><i class="fas fa-people-arrows"></i> Client</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="index"><i class="fas fa-users"></i> Employee</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Designers" asp-action="index"><i class="fas fa-user-edit"></i> Designer</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Developers" asp-action="index"><i class="fas fa-user-cog"></i> Developer</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Testers" asp-action="index"><i class="fas fa-user-check"></i> Tester</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Other employees" asp-action="index"><i class="fas fa-user-graduate"></i> Other employee</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="TableForEmployees" asp-action="index"><i class="fas fa-poll-h"></i> TFor employee</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="TableForDesigners" asp-action="index"><i class="fas fa-poll"></i> TFor designer</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="TableForDevelopers" asp-action="index"><i class="fas fa-stream"></i> TFor developer</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="TableForTesters" asp-action="index"><i class="fas fa-magnet"></i> TFor tester</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-friends"></i> Roles<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Create"><i class="fas fa-user-plus"></i> Add</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index"><i class="fas fa-user-check"></i> Roles</a></li>
+                    <li><a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="UserList"><i class="fas fa-user-cog"></i> Users</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-user-tie"></i> @User.Identity.Name</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark"><i class="fas fa-power-off"></i> Log out</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-globe"></i> Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fas fa-phone"></i> Contacts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register"><i class="fas fa-user"></i> Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"><i class="fas fa-magic"></i> Log in</a>
+            </li>
+        }
+    </ul>
