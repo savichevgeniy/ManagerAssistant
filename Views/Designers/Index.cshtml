@@ -68,12 +68,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.DataEmployment)
             </td>
-            <td>
+            <span class="noprint">
                 <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
                 <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
                 <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a> |
                 <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-chart-pie"></i></a>
-            </td>
+            </span>
         </tr>
 }
     </tbody>
