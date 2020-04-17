@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ManagerAssistant.Models;
 
 namespace ManagerAssistant.Data
 {
@@ -26,5 +27,6 @@ namespace ManagerAssistant.Data
         public DbSet<Developer> Developers { get; set; }
         public DbSet<OtherEmloyee> OtherEmloyees { get; set; }
         public DbSet<AllProject> AllProjects { get; set; }
+        public DbSet<ManagerAssistant.Models.FeedBack> FeedBack { get; set; }
     }
 }

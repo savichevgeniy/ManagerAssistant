@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ManagerAssistant.Models.FeedBack>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Feedback</h1>
+
+<p>
+    <a asp-action="Create"><i class="noprint fas fa-plus-circle"></i></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
