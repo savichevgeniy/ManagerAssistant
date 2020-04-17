@@ -7,9 +7,9 @@
 
 <h1>Employee</h1>
 
-<p class="noprint">
+<p>
     <a asp-action="Create"><i class="noprint fas fa-plus-circle"></i></a> |
-    <a href='javascript:window.print(); void 0;'><i class="noprint fas fa-print"></i></a>
+    <a href='javascript:window.print(); void 0;'><i class="noprint fas fa-print"></i></a> 
 </p>
 <table class="table">
     <thead>
@@ -51,12 +51,10 @@
                 @Html.DisplayFor(modelItem => item.DataEmployment)
             </td>
             <td>
-                <span class="noprint">
                     <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
                     <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
                     <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a> |
                     <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-chart-pie"></i></a>
-                </span>
             </td>
         </tr>
 }

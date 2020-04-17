@@ -7,11 +7,12 @@
 
 <h1>Projects</h1>
 
-<p class="noprint">
+<p>
     <a asp-action="Create"><i class="noprint fas fa-plus-circle"></i></a> |
     <a href='javascript:window.print(); void 0;'><i class="noprint fas fa-print"></i></a>
 </p>
-<table class="table">   
+
+<table class="table">
     <thead>
         <tr>
             <th>
@@ -39,38 +40,37 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameProject)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalDeadline)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalIncome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Profit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CostProject)
-            </td>
-            <td>
-                <span class="noprint">
-                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-chart-pie"></i></a>
-                </span>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameProject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalDeadline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalIncome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tax)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostProject)
+                </td>
+                <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
+                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-chart-pie"></i></a>
+                </td>
+            </tr>
+        }
     </tbody>
-</table>    
+</table>

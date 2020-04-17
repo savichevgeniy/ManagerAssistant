@@ -223,7 +223,7 @@ namespace ManagerAssistant
 
         private double? calculateTotalCost()
         {
-            return Cost + Profit + Tax;
+            return Cost + Profit + Tax + TotalIncome;
         }
         private double? calculateTax()
         {
