@@ -17,23 +17,23 @@ namespace ManagerAssistant
     {
         public System.Guid Id { get; set; }
 
-        [Display(Name = "Наименвание проекта")]
+        [Display(Name = "Name project")]
         [DataType(DataType.Text)]
         public string NameProject { get; set; }
 
 
-        [Display(Name = "Статус")]
+        [Display(Name = "Status")]
         [DataType(DataType.Text)]
         public string Status { get; set; }
 
-        [Display(Name = "Описание")]
+        [Display(Name = "Description")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        [Display(Name = "Дней на выполнение")]
+        [Display(Name = "Day on development")]
         public Nullable<Int32> DayOnDev { get; set; }
 
-        [Display(Name = "Страховка")]
+        [Display(Name = "Insurance")]
         public Nullable<Int32> Insurance { get; set; }
 
         private Int32? TDead { get; set; }
@@ -59,19 +59,19 @@ namespace ManagerAssistant
             }
         }
 
-        [Display(Name = "Количество разработчиков")]
+        [Display(Name = "Quantity developers")]
         public Nullable<int> QuantityPerson { get; set; }
 
-        [Display(Name = "Арендная плата")]
+        [Display(Name = "Rent")]
         [DataType(DataType.Currency)]
         public Nullable<double> Rent { get; set; }
 
-        [Display(Name = "Оплата серверов")]
+        [Display(Name = "PaymentForServers")]
         [DataType(DataType.Currency)]
         public Nullable<double> PaymentForServers { get; set; }
 
         private double? TCost;
-        [Display(Name = "Затраты на проект")]
+        [Display(Name = "Cost")]
         [DataType(DataType.Currency)]
         public Nullable<double> Cost
         {
@@ -94,12 +94,12 @@ namespace ManagerAssistant
             }
         }
 
-        [Display(Name = "Средняя зп команды")]
+        [Display(Name = "Average income")]
         [DataType(DataType.Currency)]
         public Nullable<double> AverageIncome { get; set; }
 
         private double? TIncome;
-        [Display(Name = "Итоговая зп")]
+        [Display(Name = "Total income")]
         [DataType(DataType.Currency)]
         public Nullable<double> TotalIncome
         {
@@ -123,7 +123,7 @@ namespace ManagerAssistant
         }
 
         private double? TProfit;
-        [Display(Name = "Прибыль")]
+        [Display(Name = "Profit")]
         [DataType(DataType.Currency)]
         public Nullable<double> Profit
         {
@@ -147,7 +147,7 @@ namespace ManagerAssistant
         }
 
         private double? TTax;
-        [Display(Name = "Налоги")]
+        [Display(Name = "Tax")]
         [DataType(DataType.Currency)]
         public Nullable<double> Tax
         {
@@ -171,7 +171,7 @@ namespace ManagerAssistant
         }
 
         private double? TCostProject;
-        [Display(Name = "Стоимость проекта")]
+        [Display(Name = "Cost project")]
         [DataType(DataType.Currency)]
         public Nullable<double> CostProject
         {

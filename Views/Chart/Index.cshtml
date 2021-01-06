@@ -1,0 +1,51 @@
+﻿@model ProjectViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h3>On the chart, you can see the share of project revenue:</h3>
+<div class="col-11">
+    <canvas id="myChart"></canvas>
+</div>
+
+@section Scripts {
+    <script>
+    $(function () {
+        $.ajax({
+                url: '@Url.Action("GetData", "Chart")',
+                type: 'GET',
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    if (data.status) {
+                        var totalIncome = [];
+                        var nameProject = [];
+                        for (var i in data.projects) {
+                            totalIncome.push(data.projects[i].totalIncome);
+                            nameProject.push(data.projects[i].nameProject);
+                        }
+                        console.log(totalIncome);
+                        console.log(nameProject);
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myPieChart = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                datasets: [{
+                                    data: totalIncome,
+                                    backgroundColor: data.colors,
+                                }],
+                                // These labels appear in the legend and in the tooltips when hovering different arcs
+                                labels: nameProject
+                            }
+                        });
+                        } 
+                },
+                error: function (data) {
+                    console.log("Error");
+                }
+                });
+    });
+    </script>
+}

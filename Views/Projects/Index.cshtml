@@ -9,7 +9,8 @@
 
 <p>
     <a asp-action="Create"><i class="noprint fas fa-plus-circle"></i></a> |
-    <a href='javascript:window.print(); void 0;'><i class="noprint fas fa-print"></i></a>
+    <a href='javascript:window.print(); void 0;'><i class="noprint fas fa-print"></i></a> |
+    <a asp-controller="Chart" asp-action="Index"><i class="fas fa-chart-pie"></i></a> 
 </p>
 
 <table class="table">
@@ -67,8 +68,7 @@
                 <td>
                         <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
                         <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-chart-pie"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a> 
                 </td>
             </tr>
         }

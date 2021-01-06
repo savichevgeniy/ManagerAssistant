@@ -20,12 +20,18 @@ namespace ManagerAssistant.Controllers
             _context = context;
         }
 
-        // GET: FeedBacks
+
+        [Authorize(Roles = "admin, manager")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.FeedBack.ToListAsync());
         }
 
+
+        public IActionResult Create()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FIO,Email,Message")] FeedBack feedBack)
@@ -36,22 +42,6 @@ namespace ManagerAssistant.Controllers
                 _context.Add(feedBack);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(feedBack);
-        }
-
-        [Authorize(Roles = "admin, manager")]
-        public async Task<IActionResult> Edit(Guid? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var feedBack = await _context.FeedBack.FindAsync(id);
-            if (feedBack == null)
-            {
-                return NotFound();
             }
             return View(feedBack);
         }
