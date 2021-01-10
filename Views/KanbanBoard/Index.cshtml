@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ManagerAssistant.Project>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Use kanban board for manage you project</h3>
+
+<div class="container-fluid">
+    <div id="sortableKanbanBoards" class="row">
+
+       
+
+
+        <div class="panel panel-primary kanban-col">
+            <div class="panel-heading">
+                TODO
+                <i class="fa fa-1x fa-plus-circle pull-right"></i>
+            </div>
+                <div class="panel-body">
+                    <div id="TODO" class="kanban-centered">
+                        @foreach (var item in Model)
+                        {
+                            <article class="kanban-entry grab" id=" @Html.DisplayNameFor(model => item.Id)" draggable="true">
+                                <div class="kanban-entry-inner">
+                                    <div class="kanban-label">
+                                        <h2>Name project: @Html.DisplayFor(modelItem => item.NameProject) </h2>
+                                        <p><h2>Deadline: @Html.DisplayFor(modelItem => item.TotalDeadline)</h2></p>
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+                            </article>
+                        }
+                        </div>
+                </div>
+                <div class="panel-footer">
+                    <a asp-controller="Projects" asp-action="Index">Add a card...</a>
+                </div>
+        </div>
+
+
+        <div class="panel panel-primary kanban-col">
+            <div class="panel-heading">
+                DOING
+                <i class="fa fa-1x fa-plus-circle pull-right"></i>
+            </div>
+            <div class="panel-body">
+                <div id="DOING" class="kanban-centered">
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-primary kanban-col">
+            <div class="panel-heading">
+                DONE
+                <i class="fa fa-1x fa-plus-circle pull-right"></i>
+            </div>
+            <div class="panel-body">
+                <div id="DONE" class="kanban-centered">
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal modal-static fade" id="processing-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fa fa-refresh fa-5x fa-spin"></i>
+                    <h4>Processing...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

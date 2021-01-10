@@ -4,6 +4,12 @@
 
     <div class="text-center">
         <h1>ManagerAssistant</h1>
-        <p>This application is intended for managers of IT - Companies. The app is cross-platform and can be used on various devices. Find an error?<a asp-controller="FeedBacks" asp-action="Create"> Inform us.</a></p>
+        <p>
+            This application is intended for managers of IT - Companies. The app is cross-platform and can be used on various devices.
+            Find an error? <a asp-controller="FeedBacks" asp-action="Create"> Inform us.</a>
+            You can<a asp-controller="KanbanBoard" asp-action="Index"> Start with table</a> or
+            <a asp-controller="KanbanBoard" asp-action="Index"> Start with kanban board</a>
+        </p>
         <img src="~/Image/alldevises.png" style="width:90%" />
+        
     </div>
