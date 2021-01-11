@@ -25,10 +25,19 @@ namespace ManagerAssistant.Controllers
         }
 
         // GET: Projects
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Project.ToListAsync());
+            var project = from m in _context.Project
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                project = project.Where(s => s.NameProject.Contains(searchString));
+            }
+            return View(await project.ToListAsync());
         }
+
+
 
         // GET: Projects/Details/5
         public async Task<IActionResult> Details(Guid? id)
